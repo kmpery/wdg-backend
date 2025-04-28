@@ -46,6 +46,6 @@ app.use((err: Error, req: Request, res: Response, next: Function) => {
 });
 
 // Jalankan server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server berjalan di http://localhost:${PORT}`);
 });
