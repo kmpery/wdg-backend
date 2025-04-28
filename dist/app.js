@@ -9,16 +9,15 @@ const cors_1 = __importDefault(require("cors"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const comments_1 = __importDefault(require("./routes/comments"));
 const rsvp_1 = __importDefault(require("./routes/rsvp"));
-// Optional: For logging requests during development
 const morgan_1 = __importDefault(require("morgan"));
 // Load environment variables from .env file
 dotenv_1.default.config(); // <- load isi file .env
 const app = (0, express_1.default)();
-const PORT = parseInt(process.env.PORT || '3000', 10);
-const MONGO_URI = process.env.MONGO_URI || '';
+const PORT = parseInt(process.env.PORT || '3000', 10); // Menggunakan PORT dari environment
+const MONGO_URI = process.env.MONGO_URI || ''; // URL MongoDB dari environment
 if (!MONGO_URI) {
     console.error('MONGO_URI belum diset di .env');
-    process.exit(1); // keluar kalau tidak ada koneksi database
+    process.exit(1); // keluar jika MONGO_URI tidak diset
 }
 // Middleware
 app.use((0, cors_1.default)());
@@ -42,6 +41,6 @@ app.use((err, req, res, next) => {
     res.status(500).send('Terjadi kesalahan pada server!');
 });
 // Jalankan server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server berjalan di http://localhost:${PORT}`);
 });
