@@ -42,6 +42,6 @@ app.use((err, req, res, next) => {
     res.status(500).send('Terjadi kesalahan pada server!');
 });
 // Jalankan server
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, () => {
     console.log(`Server berjalan di http://localhost:${PORT}`);
 });
