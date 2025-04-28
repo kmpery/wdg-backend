@@ -11,7 +11,7 @@ import morgan from 'morgan';
 dotenv.config(); // <- load isi file .env
 
 const app: Application = express();
-const PORT = process.env.PORT || 3000;
+const PORT = parseInt(process.env.PORT || '3000', 10);
 const MONGO_URI = process.env.MONGO_URI || '';
 
 if (!MONGO_URI) {

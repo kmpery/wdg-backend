@@ -14,7 +14,7 @@ const morgan_1 = __importDefault(require("morgan"));
 // Load environment variables from .env file
 dotenv_1.default.config(); // <- load isi file .env
 const app = (0, express_1.default)();
-const PORT = process.env.PORT || 3000;
+const PORT = parseInt(process.env.PORT || '3000', 10);
 const MONGO_URI = process.env.MONGO_URI || '';
 if (!MONGO_URI) {
     console.error('MONGO_URI belum diset di .env');
