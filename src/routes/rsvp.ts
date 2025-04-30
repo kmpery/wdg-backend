@@ -24,7 +24,7 @@ router.post('/', async (req: Request, res: Response) => {
 // GET all RSVPs
 router.get('/', async (_req: Request, res: Response) => {
   try {
-    const rsvps = await RSVP.find().sort({ createdAt: -1 }); // optional: biar data terbaru di atas
+    const rsvps = await RSVP.find().sort({ createdAt: -1 });
     return res.status(200).json(rsvps);
   } catch (error) {
     console.error('Error fetching RSVPs:', error);
