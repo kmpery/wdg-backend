@@ -20,7 +20,15 @@ if (!MONGO_URI) {
     process.exit(1);
 }
 // Middleware
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({
+    origin: [
+        'http://localhost:5173',
+        'https://wdg-frontend-production.up.railway.app',
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+}));
 app.use(express_1.default.json());
 app.use((0, morgan_1.default)('dev'));
 // Koneksi MongoDB
